@@ -9,31 +9,36 @@ body {
     --button: #00bb1f;
     --head: white;
     --buttonhover: #009c1a;
+    --line: #456;
 
     font-family: "Inter";
     background-color: var(--background);
     margin: 0;
     padding: 0;
+    color: var(--text);
 
     background-image: url(images/content-bg.png);
     background-position: -1px 74px;
     background-repeat: repeat-x;
+    min-width: 370px;
 }
 
 header {
-    padding: 15px max(20px, 15vw);
+    width: min(950px, 70vw);
+    padding: 15px 15px;
+    margin: 0 auto;
     padding-bottom: 10px;
     justify-content: space-between;
     align-items: center;
     display: flex;
     color: var(--head);
-    /* border-bottom: 1px solid var(--text); */
 }
 
 .logo {
     font-size: 40px;
     font-weight: 800;
     letter-spacing: -1.5px;
+    margin-right: 20px;
 }
 
 .button > img {
@@ -57,4 +62,31 @@ header {
 
 .button:hover {
     background-color: var(--buttonhover);
+}
+
+.shelf {
+    margin: 80px auto;
+    width: min(950px, 70vw);
+    min-width: 340px;
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 300;
+    padding-bottom: 3px;
+    border-bottom: 0.5px solid var(--line);
+    margin-bottom: 10px;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(172px, 1fr));
+    grid-template-rows: auto;
+    gap: 15px;
+}
+
+.card {
+    border-radius: 4px;
+    background-color: var(--line);
+    aspect-ratio: 1 / 1.3;
 }
