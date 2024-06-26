@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [1, 2, 3, 4, 5, 6];
 
 function Book(name, author, pages, isbn, read) {
   this.name = name;
@@ -12,3 +12,15 @@ function addBookToLibrary() {
   const tempbook = new Book(m, a, p, i, r);
   myLibrary.push(tempbook)
 }
+
+let grid = document.querySelector(".book-grid");
+
+function test(my) {
+  for (let c in my) {
+    const newCard = document.createElement("div");
+    newCard.classList.add("card");
+    grid.appendChild(newCard);
+  }
+};
+
+test(myLibrary);
