@@ -106,13 +106,17 @@ const form = document.querySelector("form");
 
 save.addEventListener("click", (e) => {
   e.preventDefault();
-  let readBool = false;
-  if (read.checked == true) {
-    readBool = true;
+  if (form.checkValidity()) {
+    let readBool = false;
+    if (read.checked == true) {
+      readBool = true;
+    }
+    addBookToLibrary(title.value, author.value, pages.value, readBool);
+    form.reset();
+    dialog.close();
+  } else {
+    form.reportValidity();
   }
-  addBookToLibrary(title.value, author.value, pages.value, readBool);
-  form.reset();
-  dialog.close();
 });
 
 // card handling
@@ -131,5 +135,15 @@ readTogbtns.forEach(button => {
       myLibrary[bID].read = true;
     }
     console.log(myLibrary[bID]);
+  });
+});
+
+delBookbtns.forEach(button => {
+  button.addEventListener("click", function() {
+    const parentBook = this.parentElement.parentElement;
+    let bID = parentBook.getAttribute("data-index");
+    myLibrary.splice(bID, 1);
+    console.log(myLibrary);
+    parentBook.remove();
   });
 });
