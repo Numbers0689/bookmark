@@ -11,6 +11,7 @@ body {
     --buttonhover: #009c1a;
     --line: #456;
     --bg: #9ab;
+    --inpbg: #cde;
 
     font-family: "Inter";
     background-color: var(--background);
@@ -111,7 +112,7 @@ header {
 
 ::backdrop {
     background-color: var(--background);
-    opacity: 0.75;
+    opacity: 0.9;
 }
 
 button {
@@ -125,5 +126,102 @@ button:hover {
 /* dialog styles */
 
 dialog {
-    background-color: var(--bg);
+    background-color: var(--line);
+    border: none;
+    border-radius: 4px;
+    color: var(--text);
+    padding: 30px 40px;
 }
+
+#formhead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeD {
+    background-color: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+
+.closeD:hover {
+    color: var(--head);
+}
+
+form > div {
+    padding-bottom: 20px;
+    color: var(--text);
+}
+
+input[type="checkbox"] {
+    background-color: var(--inpbg);
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    border: none;
+    color: #567;
+    appearance: none;
+    margin: 0;
+    padding: 0px;
+}
+
+input {
+    background-color: var(--inpbg);
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    width: 80%;
+
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus {
+    box-shadow: 0 0 5px #012;
+    background-color: var(--head);
+}
+
+input[type="checkbox"]:hover {
+    background-color: var(--head);
+}
+
+input[type="checkbox"]:checked {
+    content: url(icons/checkmark-svg-svg.svg);
+}
+
+form > button {
+    font-weight: 700;
+    color: var(--head);
+    background-color: var(--button);
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    padding: 4px 8px;
+    bottom: 30px;
+    right: 40px;
+    position: absolute;
+}
+
+form > button:hover {
+    background-color: var(--buttonhover);
+}
+
+label {
+    display: block;
+    padding-bottom: 5px;
+    color: var(--head);
+}
+
+#checkdiv {
+    display: flex;
+    gap: 10px;
+}
+
+form {
+    min-width: 370px;
+    width: min(400px, 30vw);
+}
+
+
+/* card data styles */
+

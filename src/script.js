@@ -1,29 +1,39 @@
-const myLibrary = [1, 2, 3, 4, 5, 6];
+// sample books:
 
-function Book(name, author, pages, isbn, read) {
+let b1 = new Book("The Trial", "Franz Kafka", 258, true);
+let b2 = new Book("Crime And Punishment", "Fyodor Dostoevsky", 642, true);
+let b3 = new Book("Norwegian Wood", "Haruki Murakami", 225, true);
+let b4 = new Book("War and Peace", "Leo Tolstoy", 1206, false);
+
+
+// library functions:
+
+const myLibrary = [b1, b2, b3, b4];
+let grid = document.querySelector(".book-grid");
+
+function Book(name, author, pages, read) {
   this.name = name;
   this.author = author;
   this.pages = pages;
-  this.isbn = isbn;
   this.read = Boolean(read);
-}
+};
 
-function addBookToLibrary() {
-  const tempbook = new Book(m, a, p, i, r);
-  myLibrary.push(tempbook)
-}
+function addBookToLibrary(title, author, pages, read) {
+  let b = `b${myLibrary.length}`;
+  b = new Book(title, author, pages, read);
+  myLibrary.push(b);
+};
 
-let grid = document.querySelector(".book-grid");
-
-function test(my) {
-  for (let c in my) {
+function setCard(lib) {
+  for (let i = 0; i < lib.length; i++) {
     const newCard = document.createElement("div");
     newCard.classList.add("card");
+    newCard.setAttribute("data-index", `${i}`)
     grid.appendChild(newCard);
   }
 };
 
-test(myLibrary);
+setCard(myLibrary);
 
 // dialog set up:
 
@@ -39,7 +49,6 @@ logButton.addEventListener("click", () => {
 logCard.addEventListener("click", () => {
   dialog.showModal();
 });
-
 
 closeDialog.addEventListener("click", () => {
   dialog.close();
