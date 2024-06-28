@@ -225,3 +225,75 @@ form {
 
 /* card data styles */
 
+.data {
+    padding: 15px;
+    color: var(--head);
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.cardTitle {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--text);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.cardAuthor, .cardTitle, .cardPages {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.cardAuthor {
+    padding-bottom: 10px;
+}
+
+.readTog, .delBook {
+    border: 1px solid var(--head);
+    border-radius: 4px;
+    padding: 10% 5px;
+    background: none;
+    color: var(--head);
+    font-size: 18px;
+}
+
+.btns {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-self: end;
+}
+
+.readTog {
+    border-color: var(--button);
+    color: var(--button);
+    background-color: inherit;
+}
+
+.true {
+    background-color: var(--button);
+    color: var(--head);
+}
+
+.delBook {
+    background-color: rgb(255, 145, 0);
+    border-color: rgb(255, 145, 0);
+}
+
+.delBook:hover {
+    background-color: rgb(255, 51, 0);
+    border-color: rgb(255, 51, 0);
+}
+
+@media only screen and (max-width: 513px) {
+    .data {
+        font-size: 1.5rem;
+    }
+    .cardTitle {
+        font-size: 2rem;
+    }
+  }

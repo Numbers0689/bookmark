@@ -23,20 +23,52 @@ function addBookToLibrary(title, author, pages, read) {
   let b = `b${no}`;
   b = new Book(title, author, pages, read);
   myLibrary.push(b);
-  
-  const newCard = document.createElement("div");
-  newCard.classList.add("card");
-  newCard.setAttribute("data-index", `${no}`)
-  grid.appendChild(newCard);
+  addCard(b, no);
   console.log(myLibrary[no]);
+};
+
+function addCard(book, no) {
+  const newCard = document.createElement("div");
+  newCard.classList.add("card", "data");
+  newCard.setAttribute("data-index", `${no}`);
+
+  const ctitle = document.createElement("div");
+  ctitle.textContent = book.name;
+  ctitle.classList.add("cardTitle");
+
+  const cauth = document.createElement("div");
+  cauth.textContent = "By " + book.author;
+  cauth.classList.add("cardAuthor");
+
+  const cpg = document.createElement("div");
+  cpg.textContent = book.pages + " pages";
+  cpg.classList.add("cardPages");
+
+  const readbtn = document.createElement("button");
+  readbtn.textContent = "Read";
+  readbtn.classList.add("readTog");
+  if (book.read) {
+    readbtn.classList.add("true");
+  }
+
+  const delbtn = document.createElement("button");
+  delbtn.textContent = "Remove";
+  delbtn.classList.add("delBook");
+
+  const idata = document.createElement("div");
+  idata.append(ctitle, cauth, cpg); 
+
+  const btns = document.createElement("div");
+  btns.classList.add("btns");
+  btns.append(readbtn, delbtn);
+
+  newCard.append(idata, btns);
+  grid.appendChild(newCard);
 };
 
 function setCard(lib) {
   for (let i = 0; i < lib.length; i++) {
-    const newCard = document.createElement("div");
-    newCard.classList.add("card");
-    newCard.setAttribute("data-index", `${i}`)
-    grid.appendChild(newCard);
+    addCard(lib[i], i);
     console.log(lib[i]);
   }
 };
@@ -82,3 +114,12 @@ save.addEventListener("click", (e) => {
   form.reset();
   dialog.close();
 });
+
+// card handling
+
+const readTogbtns = document.querySelectorAll(".readTog");
+const delBookbtns = document.querySelectorAll(".delBook");
+
+// readTog.addEventListener("click", () => {
+//   readTog.classList.toggle("true")
+// });
