@@ -23,6 +23,10 @@ body {
     background-position: -1px 74px;
     background-repeat: repeat-x;
     min-width: 370px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -231,7 +235,6 @@ form {
     font-size: 0.9rem;
     display: flex;
     flex-direction: column;
-    flex: 1;
     justify-content: space-between;
 }
 
@@ -305,4 +308,26 @@ form {
     font-weight: 200;
     letter-spacing: 0.02em;
     line-height: 1.1em;
+}
+
+/* footer styles */
+
+footer > a {
+    text-decoration: none;
+    color: var(--bg);
+}
+
+footer > a:hover {
+    color: var(--inpbg);
+}
+
+footer {
+    background-color: #2c3440;
+    margin: 0;
+    padding: 20px 0px;
+    text-align: center;
+}
+
+.site-body {
+    flex: 1;
 }
