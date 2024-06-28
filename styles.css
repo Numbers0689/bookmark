@@ -10,6 +10,7 @@ body {
     --head: white;
     --buttonhover: #009c1a;
     --line: #456;
+    --bg: #9ab;
 
     font-family: "Inter";
     background-color: var(--background);
@@ -98,8 +99,31 @@ header {
     background-color: var(--text);
 }
 
+.log:hover {
+    background-color: var(--button);
+}
+
 .log > img {
     height: 80px;
     width: 80px;
     align-self: center;
+}
+
+::backdrop {
+    background-color: var(--background);
+    opacity: 0.75;
+}
+
+button {
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* dialog styles */
+
+dialog {
+    background-color: var(--bg);
 }

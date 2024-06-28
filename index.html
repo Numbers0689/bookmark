@@ -9,20 +9,43 @@
         <script src="src/script.js" defer></script>
     </head>
     <body>
+        <dialog>
+            <div>I READ ....</div>
+            <button class="closeD">Close</button>
+            <form method="dialog">
+                <div>
+                    <label for="bookTitle">Title</label>
+                    <input type="text" id="bookTitle" name="bookTitle" autofocus required>
+                </div>
+                <div>
+                    <label for="auth">Author</label>
+                    <input type="text" name="author" id="auth" required>
+                </div>
+                <div>
+                    <label for="pg">Pages</label>
+                    <input type="tel" min="1" id="pg" name="pages" required>
+                </div>
+                <div>
+                    <input type="checkbox" id="read" name="readstatus" value="completed">
+                    <label for="read">Completed</label>
+                </div>
+                <input type="submit" value="submit">
+            </form>
+        </dialog>
         <header>
             <div class="logo">Bookboxd</div>
-            <a href="#" class="button">
+            <button class="button logbook">
                 <img src="icons/plus.svg" alt="log book">
                 <div>LOG</div>
-            </a>
+            </button>
         </header>
         <div class="site-body">
             <div class="shelf">
                 <div class="title">YOUR BOOKSHELF</div>
                 <div class="book-grid">
-                    <div class="log card">
-                        <img src="icons/plus.svg" alt="">
-                    </div>
+                    <button class="log card">
+                        <img src="icons/plus.svg">
+                    </button>
                 </div>
             </div>
         </div>

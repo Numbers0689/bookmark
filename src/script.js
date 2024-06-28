@@ -24,3 +24,23 @@ function test(my) {
 };
 
 test(myLibrary);
+
+// dialog set up:
+
+const dialog = document.querySelector("dialog");
+const logButton = document.querySelector(".logbook");
+const closeDialog = document.querySelector(".closeD");
+const logCard = document.querySelector(".log");
+
+logButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+logCard.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+
+closeDialog.addEventListener("click", () => {
+  dialog.close();
+});
