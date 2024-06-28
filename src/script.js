@@ -9,7 +9,7 @@ let b4 = new Book("War and Peace", "Leo Tolstoy", 1206, false);
 // library functions:
 
 const myLibrary = [b1, b2, b3, b4];
-let grid = document.querySelector(".book-grid");
+const grid = document.querySelector(".book-grid");
 
 function Book(name, author, pages, read) {
   this.name = name;
@@ -19,9 +19,16 @@ function Book(name, author, pages, read) {
 };
 
 function addBookToLibrary(title, author, pages, read) {
-  let b = `b${myLibrary.length}`;
+  let no = myLibrary.length;
+  let b = `b${no}`;
   b = new Book(title, author, pages, read);
   myLibrary.push(b);
+  
+  const newCard = document.createElement("div");
+  newCard.classList.add("card");
+  newCard.setAttribute("data-index", `${no}`)
+  grid.appendChild(newCard);
+  console.log(myLibrary[no]);
 };
 
 function setCard(lib) {
@@ -30,6 +37,7 @@ function setCard(lib) {
     newCard.classList.add("card");
     newCard.setAttribute("data-index", `${i}`)
     grid.appendChild(newCard);
+    console.log(lib[i]);
   }
 };
 
@@ -51,5 +59,26 @@ logCard.addEventListener("click", () => {
 });
 
 closeDialog.addEventListener("click", () => {
+  dialog.close();
+});
+
+
+// form handling
+
+const save = document.querySelector("#submit");
+const title = document.querySelector("#bookTitle");
+const author = document.querySelector("#auth");
+const pages = document.querySelector("#pg");
+const read = document.querySelector("#read");
+const form = document.querySelector("form");
+
+save.addEventListener("click", (e) => {
+  e.preventDefault();
+  let readBool = false;
+  if (read.checked == true) {
+    readBool = true;
+  }
+  addBookToLibrary(title.value, author.value, pages.value, readBool);
+  form.reset();
   dialog.close();
 });

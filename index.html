@@ -28,10 +28,10 @@
                     <input type="tel" min="1" id="pg" name="pages" pattern="^\d*$" required>
                 </div>
                 <div id="checkdiv">
-                    <input type="checkbox" id="read" name="readstatus" value="completed">
+                    <input type="checkbox" id="read" name="readstatus">
                     <label for="read">Completed</label>
                 </div>
-                <button value="default">SAVE</button>
+                <button id="submit" value="default">SAVE</button>
             </form>
         </dialog>
         <header>
@@ -45,7 +45,7 @@
             <div class="shelf">
                 <div class="title">YOUR BOOKSHELF</div>
                 <div class="book-grid">
-                    <div class="card data"></div>
+                    <!-- <div class="card data"></div> -->
                     <button class="log card">
                         <img src="icons/plus.svg">
                     </button>
