@@ -24,7 +24,6 @@ function addBookToLibrary(title, author, pages, read) {
   b = new Book(title, author, pages, read);
   myLibrary.push(b);
   addCard(b, no);
-  console.log(myLibrary[no]);
 };
 
 function addCard(book, no) {
@@ -69,7 +68,6 @@ function addCard(book, no) {
 function setCard(lib) {
   for (let i = 0; i < lib.length; i++) {
     addCard(lib[i], i);
-    console.log(lib[i]);
   }
 };
 
@@ -121,29 +119,29 @@ save.addEventListener("click", (e) => {
 
 // card handling
 
-const readTogbtns = document.querySelectorAll(".readTog");
-const delBookbtns = document.querySelectorAll(".delBook");
+function updateDataindex() {
+  const dataindices = document.querySelectorAll("[data-index]");
+  for (let i = 0; i < dataindices.length; i++) {
+    dataindices[i].setAttribute("data-index", i);
+  }
+};
 
-readTogbtns.forEach(button => {
-  button.addEventListener("click", function() {
-    this.classList.toggle("true");
-    const parentBook = this.parentElement.parentElement;
+grid.addEventListener("click", function(event) {
+  if (event.target.classList.contains("readTog")) {
+    event.target.classList.toggle("true");
+    const parentBook = event.target.parentElement.parentElement;
     let bID = parentBook.getAttribute("data-index");
     if (myLibrary[bID].read) {
       myLibrary[bID].read = false;
     } else {
       myLibrary[bID].read = true;
     }
-    console.log(myLibrary[bID]);
-  });
-});
-
-delBookbtns.forEach(button => {
-  button.addEventListener("click", function() {
-    const parentBook = this.parentElement.parentElement;
+  }
+  else if (event.target.classList.contains("delBook")) {
+    const parentBook = event.target.parentElement.parentElement;
     let bID = parentBook.getAttribute("data-index");
     myLibrary.splice(bID, 1);
-    console.log(myLibrary);
     parentBook.remove();
-  });
+    updateDataindex();
+  }
 });
