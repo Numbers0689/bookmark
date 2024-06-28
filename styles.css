@@ -297,3 +297,12 @@ form {
         font-size: 2rem;
     }
   }
+
+.welcome {
+    font-size: 26px;
+    text-align: center;
+    margin: 30px auto;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    line-height: 1.1em;
+}

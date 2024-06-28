@@ -120,6 +120,16 @@ save.addEventListener("click", (e) => {
 const readTogbtns = document.querySelectorAll(".readTog");
 const delBookbtns = document.querySelectorAll(".delBook");
 
-// readTog.addEventListener("click", () => {
-//   readTog.classList.toggle("true")
-// });
+readTogbtns.forEach(button => {
+  button.addEventListener("click", function() {
+    this.classList.toggle("true");
+    const parentBook = this.parentElement.parentElement;
+    let bID = parentBook.getAttribute("data-index");
+    if (myLibrary[bID].read) {
+      myLibrary[bID].read = false;
+    } else {
+      myLibrary[bID].read = true;
+    }
+    console.log(myLibrary[bID]);
+  });
+});
