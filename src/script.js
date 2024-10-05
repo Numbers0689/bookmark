@@ -11,11 +11,13 @@ let b4 = new Book("War and Peace", "Leo Tolstoy", 1206, false);
 const myLibrary = [b1, b2, b3, b4];
 const grid = document.querySelector(".book-grid");
 
-function Book(name, author, pages, read) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = Boolean(read);
+class Book {
+  constructor (name, author, pages, read) {
+    this.name = name;
+    this.author = author;
+    this.pages = pages;
+    this.read = Boolean(read);
+  }
 };
 
 function addBookToLibrary(title, author, pages, read) {
